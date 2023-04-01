@@ -92,13 +92,15 @@ class SymbolsConnector(Connector):
                 latter_opening_price = latter_opening_price / %s,
                 latter_high_price = latter_high_price / %s,
                 latter_low_price = latter_low_price / %s,
-                latter_closing_price = latter_closing_price / %s
+                latter_closing_price = latter_closing_price / %s,
+                vwap = vwap / %s
             WHERE
                 symbol_code = %s
             AND
                 opening_date <= %s
         """
         super().save(sql, params=(
+            divide["ratio"],
             divide["ratio"],
             divide["ratio"],
             divide["ratio"],
